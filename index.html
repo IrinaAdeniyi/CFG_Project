@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <title>CFG Project</title>
+</head>
+<body>
+
+    <!--Traditional header-->
+    <header class="top-header"></header> 
+    
+    <!--Intro-->
+    <div class="main">
+    <h1>There was once a beautiful place</h1>  
+    <p>Small and full of struggles, but magical indeed</p>  
+
+    <!-- Music button -->
+    <audio id="myAudio" src="music.mp3" type="audio/mpeg" preload="auto"></audio>
+    <button class="button" onclick="toggleAudio()">Turn Music On/Off</button>
+    
+    <!--Find out more-->
+<div class="more">
+        <h2>Find out more</h2>
+        <h4>Romania has many beautiful places to visit,<br> an interesting history, good food and a vibrant night life</h4>
+   
+
+    <!--Links to other pages-->
+
+    <div class="card-deck">
+
+        <div class="card">
+          <img class="card-img-top" src="vladtheimpaler.jpeg" alt="Image of Vlad the Impaler">
+          <div class="card-body">
+            <h5 class="card-title">Vlad the Impaler</h5>
+            <p class="card-text">Vlad III, usually known as Vlad the Impaler or Vlad Dracula was Voivode of Wallachia three times between 1448 and 1477, when he died.</p>
+            <a href="VladTheImpaler.html" class="btn btn-primary">Read more</a>
+          </div>
+        </div>
+
+        <div class="card">
+            <img class="card-img-top" src="tourist_attraction.jpeg" alt="Tourist attraction in Romania">
+            <div class="card-body">
+              <h5 class="card-title">Places to visit</h5>
+              <p class="card-text">Romania has impressive Ancient History and incredible natural beauty. All landforms can be found here: mountains, hills, plateaus and plains.</p>
+              <a href="PlacesToVisit.html" class="btn btn-primary">Read more</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="card-img-top" src="food.jpeg" alt="Romanian food and traditional items">
+            <div class="card-body">
+              <h5 class="card-title">Traditional food and clothes</h5>
+              <p class="card-text">Traditional Romanian food is hearty and full of flavour. Traditional clothes are worn with pride during cultural events.</p>
+              <a href="FoodAndClothes.html" class="btn btn-primary">Read more</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="card-img-top" src="nightlife.jpeg" alt="Club">
+            <div class="card-body">
+              <h5 class="card-title">Night life</h5>
+              <p class="card-text">Bucharest is considered a party city in Europe. It is known for its affordable clubs, passionate crowds and staying open through the night.</p>
+              <a href="NightLife.html" class="btn btn-primary">Read more</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>    
+var audio = document.getElementById("myAudio");
+
+function toggleAudio() {
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }
+</script>  
+
+</body>
+</html>

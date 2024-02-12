@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link rel="stylesheet" href="styles.css">
+<title>Nightlife</title>
+
+  <style>
+    body {
+      font-family: Verdana, sans-serif;
+      height: 2000px; /* Ensure enough scrollable area */
+      margin: 0;
+      padding: 0;
+      line-height: 2; /* Set line height for readability */
+    }
+
+    .light-up-text span {
+      opacity: 0; /* Initially hide text */
+      transition: opacity 0.5s ease; /* Smooth transition effect */
+    }
+
+    .light-up-text {
+        margin-bottom: 50px;
+    }
+
+    .card-body {
+        height: 500px;
+    }
+
+    .card-deck {
+        padding-top: 50px;
+        display: flex;
+        margin: auto;
+        width: 75%;
+        justify-content: space-evenly;
+    }
+  </style>
+
+</head>
+<body>   
+
+<!--Traditional header-->
+<header class="top-header"></header>  
+
+<!--Image of Peles Castel-->
+<div>
+        <!-- Home button -->
+        <a href="index.html" class="home-button"><i class="fas fa-home"></i> 
+            <img src="homeIcon.jpeg" alt="Home Icon" width="40"> 
+        </a> 
+  
+        <img class="nightlife" src="night_life.jpeg" alt="Busy night club" style="padding-top: 20px;">
+</div> 
+
+<!--Text lighting up gradually-->
+<p id="lightUpText" class="light-up-text">
+    When the sun sets, Romania brings out its outrageous nightlife fun and parties for night owls.
+    Nightlife in Romania is vibrant with music for everyone and good prices. You can choose between proper night clubs and a more intimate atmosphere, where you can relax with your friends and enjoy live music or karaoke. Mojo, Coyote Cafe, Oldies, Yellow or Hard Rock Cafe are ideal places for live music and karaoke. If you prefer a proper night club a few good options would be: Le Gaga, Loft, BOA, Bamboo or Chaboo, where you can enjoy tematic parties, good champagne and the best music. 
+    Bucharest is the heart of the nightlife. Parties start around 10PM and don't normally end until morning. The clubs mentioned above are premium so they could be more on the high side regarding the prices, however most of the night clubs in the Old Town (Centrul Vechi) are really cheap. For example, the price of a beer varies between 10lei and 15 lei, which would mean about £2. Usually the entrance is free, unless there is a special event for which tickets would need to be acquired. Bucharest is defintely a city that knows how to party!
+</p>
+    
+<script>
+
+  // Function to handle scroll event
+  window.addEventListener('scroll', function() {
+    var lightUpTextElement = document.getElementById("lightUpText");
+    var words = lightUpTextElement.innerText.split(" ");
+    var windowHeight = window.innerHeight;
+    var scrollPosition = window.scrollY || window.pageYOffset;
+
+    // Loop through each word
+    words.forEach(function(word, index) {
+      var wordElement = lightUpTextElement.getElementsByTagName("span")[index];
+      var wordOffset = wordElement.offsetTop;
+      var distanceFromTop = wordOffset - scrollPosition;
+      var opacity = 1 - (distanceFromTop / (windowHeight / 2)); // Adjust denominator to control fade speed
+
+      // Ensure opacity is between 0 and 1
+      opacity = Math.min(1, Math.max(0, opacity));
+
+      // Set the opacity of the word
+      wordElement.style.opacity = opacity;
+    });
+  });
+
+  // Wrap each word in a span element
+  var lightUpTextElement = document.getElementById("lightUpText");
+  lightUpTextElement.innerHTML = lightUpTextElement.innerText.split(" ").map(function(word) {
+    return "<span>" + word + "</span>";
+  }).join(" ");
+</script>
+
+ <!--Continue exploring-->
+ <div class="more">
+ 
+    <h2>Continue exploring</h2>
+
+ <!--Links to other pages-->
+
+ <div class="card-deck">
+
+    <div class="card">
+        <img class="card-img-top" src="vladtheimpaler.jpeg" alt="Image of Vlad the Impaler">
+        <div class="card-body">
+          <h5 class="card-title">Vlad the Impaler</h5>
+          <p class="card-text">Vlad III, usually known as Vlad the Impaler or Vlad Dracula was Voivode of Wallachia three times between 1448 and 1477, when he died.</p>
+          <a href="VladTheImpaler.html" class="btn btn-primary">Read more</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="card-img-top" src="tourist_attraction.jpeg" alt="Tourist attraction in Romania">
+        <div class="card-body">
+          <h5 class="card-title">Places to visit</h5>
+          <p class="card-text">Romania has impressive Ancient History and incredible natural beauty. All landforms can be found here: mountains, hills, plateaus and plains.</p>
+          <a href="PlacesToVisit.html" class="btn btn-primary">Read more</a>
+        </div>
+    </div>
+
+      <div class="card">
+          <img class="card-img-top" src="food.jpeg" alt="Romanian food and traditional items">
+          <div class="card-body">
+            <h5 class="card-title">Traditional food and clothes</h5>
+            <p class="card-text">Traditional Romanian food is hearty and full of flavour. Traditional clothes are worn with pride during cultural events.</p>
+            <a href="FoodAndClothes.html" class="btn btn-primary">Read more</a>
+          </div>
+      </div>
+  </div>
+</div>
+
+</body>
+</html>

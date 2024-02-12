@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link rel="stylesheet" href="styles.css">
+<title>Places to visit</title>
+
+  <style>
+    body {
+      font-family: Verdana, sans-serif;
+      height: 2000px; /* Ensure enough scrollable area */
+      margin: 0;
+      padding: 0;
+      line-height: 2; /* Set line height for readability */
+    }
+
+    .light-up-text span {
+      opacity: 0; /* Initially hide text */
+      transition: opacity 0.5s ease; /* Smooth transition effect */
+    }
+
+    .light-up-text {
+        margin-bottom: 50px;
+    }
+
+    .card-body {
+        height: 500px;
+    }
+
+    .card-deck {
+        padding-top: 50px;
+        display: flex;
+        margin: auto;
+        width: 75%;
+        justify-content: space-evenly;
+    }
+  </style>
+
+</head>
+<body>   
+
+<!--Traditional header-->
+<header class="top-header"></header>  
+
+<!--Image-->
+<div>
+        <!-- Home button -->
+        <a href="index.html" class="home-button"><i class="fas fa-home"></i> 
+            <img src="homeIcon.jpeg" alt="Home Icon" width="40"> 
+        </a> 
+  
+        <img class="attractionsImage" src="touristAttractions.jpeg" alt="People's house" style="padding-top: 20px;">
+</div> 
+
+<!--Text lighting up gradually-->
+<p id="lightUpText" class="light-up-text">
+    Romania has many major tourist attractions, from medieval castles and fortifications to Caves and National Parks to drive ways in the mountains and mud volcanoes. It is definitely difficult to choose from such a generous variety of tourist attractions, but we will concentrate on three of them. Please feel free to further browse the internet to discover more. 
+</p>
+    
+<script>
+
+  // Function to handle scroll event
+  window.addEventListener('scroll', function() {
+    var lightUpTextElement = document.getElementById("lightUpText");
+    var words = lightUpTextElement.innerText.split(" ");
+    var windowHeight = window.innerHeight;
+    var scrollPosition = window.scrollY || window.pageYOffset;
+
+    // Loop through each word
+    words.forEach(function(word, index) {
+      var wordElement = lightUpTextElement.getElementsByTagName("span")[index];
+      var wordOffset = wordElement.offsetTop;
+      var distanceFromTop = wordOffset - scrollPosition;
+      var opacity = 1 - (distanceFromTop / (windowHeight / 2)); // Adjust denominator to control fade speed
+
+      // Ensure opacity is between 0 and 1
+      opacity = Math.min(1, Math.max(0, opacity));
+
+      // Set the opacity of the word
+      wordElement.style.opacity = opacity;
+    });
+  });
+
+  // Wrap each word in a span element
+  var lightUpTextElement = document.getElementById("lightUpText");
+  lightUpTextElement.innerHTML = lightUpTextElement.innerText.split(" ").map(function(word) {
+    return "<span>" + word + "</span>";
+  }).join(" ");
+</script>
+
+ <!--Continue exploring-->
+ <div class="more">
+    <div>
+        <h2>Bears' Cave</h2>
+        <p style="color: #232323;">
+            The cave was named after the numerous fossils of "cave bears" (Ursus spelaeus) found here. It used to be a home for these animals 15,000 years ago. Like many other mammals (e.g. the African elephant) the cave bear retreated to die in the same place as its ancestors or predecessors. Numerous cemeteries discovered in Romanian caves (Bisericuța Cave, Bone Cave) support this belief.
+            The cave remained closed until 17 September 1975, when the underground void was artificially opened by dynamiting the entrance during the limestone (marble) quarrying works. 
+            A first exploration of the cave took place on 20 September 1975 by the group of amateur cavers "Speodava" from the town of Dr. Petru Groza (now the town of Ștei). On the basis of complex studies carried out by the Institute of Speleology "Emil Racoviță" in collaboration with the Cris Country Museum in Oradea, the solutions for the layout and specific protection measures were established. After 5 years of development to world standards, the cave was opened to visitors on 14 July 1980. Every year the cave is visited by more than 200,000 tourists.
+        </p>
+
+        <h2>The Merry Cemetery</h2>
+        <p style="color: #232323;">
+            The Merry Cemetery (Romanian: Cimitirul Vesel) is a cemetery in the village of Săpânța, Maramureș County, Romania. It is famous for its brightly coloured tombstones with naïve paintings describing, in an original and poetic manner, the people who are buried there in addition to scenes from their lives. The Merry Cemetery became an open-air museum and a national tourist attraction. It has been listed as one of the Seven Wonders of Romania by Imperator Travel. The unusual feature of this cemetery is that it diverges from the prevalent belief, culturally shared within European societies, that views death as something indelibly solemn. Connections with the local Dacian culture have been made, whose philosophical tenets presumably vouched for the immortality of the soul and the belief that death was a moment filled with joy and anticipation for a better life (see also Zalmoxianism).
+            A collection of the epitaphs from the Merry Cemetery exists in a 2017 volume called Crucile de la Săpânța, compiled by author Roxana Mihalcea, as well as in a photography book titled The Merry Cemetery of Sapanta by Peter Kayafas.
+        </p>
+
+        <h2>Danube Delta</h2>
+        <p style="color: #232323;">
+            The Danube Delta (Romanian: Delta Dunării) is the second largest river delta in Europe, after the Volga Delta, and is the best preserved on the continent. The greater part of the Danube Delta lies in Romania (Tulcea County), with a small part in Ukraine.
+            As a young region in full process of consolidation, the Danube Delta represents a very favourable place for the development of highly diverse flora and fauna, unique[clarification needed] in Europe, with numerous rare species. It hosts 23 natural ecosystems. There are over 320 species of birds found in the delta during summer, of which 166 are hatching species and 159 are migratory. Over one million individual birds (swans, wild ducks, coots, etc.) winter here.
+        </p>
+    </div> 
+    <h2>Continue exploring</h2>
+
+ <!--Links to other pages-->
+
+ <div class="card-deck">
+
+    <div class="card">
+        <img class="card-img-top" src="vladtheimpaler.jpeg" alt="Image of Vlad the Impaler">
+        <div class="card-body">
+          <h5 class="card-title">Vlad the Impaler</h5>
+          <p class="card-text">Vlad III, usually known as Vlad the Impaler or Vlad Dracula was Voivode of Wallachia three times between 1448 and 1477, when he died.</p>
+          <a href="VladTheImpaler.html" class="btn btn-primary">Read more</a>
+        </div>
+      </div>
+
+      <div class="card">
+          <img class="card-img-top" src="food.jpeg" alt="Romanian food and traditional items">
+          <div class="card-body">
+            <h5 class="card-title">Traditional food and clothes</h5>
+            <p class="card-text">Traditional Romanian food is hearty and full of flavour. Traditional clothes are worn with pride during cultural events.</p>
+            <a href="FoodAndClothes.html" class="btn btn-primary">Read more</a>
+          </div>
+      </div>
+
+      <div class="card">
+          <img class="card-img-top" src="nightlife.jpeg" alt="Club">
+          <div class="card-body">
+            <h5 class="card-title">Night life</h5>
+            <p class="card-text">Bucharest is considered a party city in Europe. It is known for its affordable clubs, passionate crowds and staying open through the night.</p>
+            <a href="NightLife.html" class="btn btn-primary">Read more</a>
+          </div>
+      </div>
+  </div>
+</div>
+
+</body>
+</html>

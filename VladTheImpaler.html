@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link rel="stylesheet" href="styles.css">
+<title>Vlad the Impaler</title>
+
+  <style>
+    body {
+      font-family: Verdana, sans-serif;
+      height: 2000px; /* Ensure enough scrollable area */
+      margin: 0;
+      padding: 0;
+      line-height: 2; /* Set line height for readability */
+    }
+
+    .light-up-text span {
+      opacity: 0; /* Initially hide text */
+      transition: opacity 0.5s ease; /* Smooth transition effect */
+    }
+
+    .light-up-text {
+        margin-bottom: 50px;
+    }
+
+    .card-body {
+        height: 500px;
+    }
+
+    .card-deck {
+        padding-top: 50px;
+        display: flex;
+        margin: auto;
+        width: 75%;
+        justify-content: space-evenly;
+    }
+  </style>
+
+</head>
+<body>   
+
+<!--Traditional header-->
+<header class="top-header"></header>  
+
+<!--Image of Peles Castel-->
+<div>
+        <!-- Home button -->
+        <a href="index.html" class="home-button"><i class="fas fa-home"></i> 
+            <img src="homeIcon.jpeg" alt="Home Icon" width="40"> 
+        </a> 
+  
+        <img class="entryImage" src="castelulPeles.png" alt="Peles Castel" style="padding-top: 20px;">
+</div> 
+
+<!--Text lighting up gradually-->
+<p id="lightUpText" class="light-up-text">
+Vlad III, commonly known as Vlad the Impaler (Romanian: Vlad Țepeș or Vlad Dracula (Romanian: Vlad Drăculea), was Voivode of Wallachia three times between 1448 and his death in 1476/77. He is often considered one of the most important rulers in Wallachian history and a national hero of Romania. The name Vlad the Impaler is connected to the impalement that was his favourite method of execution.
+     
+The name Dracula, which is now associated with vampires, was for centuries known as the sobriquet of Vlad III. This name originates from the nickname of his father, Vlad Dracul (meaning "Vlad the Dragon" in mediaeval Romanian), who received it after he became a member of the Order of the Dragon. The Order of the Dragon was a monarchical chivalric order for selected higher aristocracy and monarchs, founded in 1408 by Sigismund of Luxembourg. Dracula is the Slavonic genitive form of Dracul, meaning the son of Dracul (or the Dragon). In modern Romanian, dracul means "the devil", which contributed to Vlad's reputation.
+    
+Vlad III’s cruelty was real, and his reputation as a cruel leader spread through 15th-century Europe thanks to the printing press. Centuries later, the sinister reputation of Vlad the Impaler took on new life when Bram Stoker came across the name Dracula in an old history book, learned that it could also mean “devil” in Walachia, and gave the name to his fictional vampire. Yet today Vlad III is something of a national hero in Romania, where he is remembered for defending his people from foreign invasion, whether Turkish soldiers or German merchants.
+    
+Please feel free to further browse the internet to discover more, as this is just an introduction to the history of Romania.
+</p>
+    
+<script>
+
+  // Function to handle scroll event
+  window.addEventListener('scroll', function() {
+    var lightUpTextElement = document.getElementById("lightUpText");
+    var words = lightUpTextElement.innerText.split(" ");
+    var windowHeight = window.innerHeight;
+    var scrollPosition = window.scrollY || window.pageYOffset;
+
+    // Loop through each word
+    words.forEach(function(word, index) {
+      var wordElement = lightUpTextElement.getElementsByTagName("span")[index];
+      var wordOffset = wordElement.offsetTop;
+      var distanceFromTop = wordOffset - scrollPosition;
+      var opacity = 1 - (distanceFromTop / (windowHeight / 2)); // Adjust denominator to control fade speed
+
+      // Ensure opacity is between 0 and 1
+      opacity = Math.min(1, Math.max(0, opacity));
+
+      // Set the opacity of the word
+      wordElement.style.opacity = opacity;
+    });
+  });
+
+  // Wrap each word in a span element
+  var lightUpTextElement = document.getElementById("lightUpText");
+  lightUpTextElement.innerHTML = lightUpTextElement.innerText.split(" ").map(function(word) {
+    return "<span>" + word + "</span>";
+  }).join(" ");
+</script>
+
+ <!--Continue exploring-->
+ <div class="more">
+    <h2>Continue exploring</h2>
+
+ <!--Links to other pages-->
+
+ <div class="card-deck">
+
+    <div class="card">
+        <img class="card-img-top" src="tourist_attraction.jpeg" alt="Tourist attraction in Romania">
+        <div class="card-body">
+          <h5 class="card-title">Places to visit</h5>
+          <p class="card-text">Romania has impressive Ancient History and incredible natural beauty. All landforms can be found here: mountains, hills, plateaus and plains.</p>
+          <a href="PlacesToVisit.html" class="btn btn-primary">Read more</a>
+        </div>
+      </div>
+
+      <div class="card">
+          <img class="card-img-top" src="food.jpeg" alt="Romanian food and traditional items">
+          <div class="card-body">
+            <h5 class="card-title">Traditional food and clothes</h5>
+            <p class="card-text">Traditional Romanian food is hearty and full of flavour. Traditional clothes are worn with pride during cultural events.</p>
+            <a href="FoodAndClothes.html" class="btn btn-primary">Read more</a>
+          </div>
+      </div>
+
+      <div class="card">
+          <img class="card-img-top" src="nightlife.jpeg" alt="Club">
+          <div class="card-body">
+            <h5 class="card-title">Night life</h5>
+            <p class="card-text">Bucharest is considered a party city in Europe. It is known for its affordable clubs, passionate crowds and staying open through the night.</p>
+            <a href="NightLife.html" class="btn btn-primary">Read more</a>
+          </div>
+      </div>
+  </div>
+</div>
+
+</body>
+</html>
